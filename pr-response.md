@@ -27,11 +27,9 @@ tests passed.
 **What I did:** Created tests/test_watchlist.py, mirroring the fixture and structure of test_collection.py. Added test_add_to_watchlist_nonexistent_film_raises, modeled directly on test_add_to_collection_nonexistent_film_raises.
 **How I verified:** Ran pytest tests/test_watchlist.py -v to confirm the 
 new test passes, then pytest tests/ -v to confirm no regressions across 
-the full suite. Note: used a fake integer film_id (99999) rather than a 
-UUID string, since Film.id is still an integer on this branch pre-rebase; 
-this will need revisiting after Comment 6. --Note: initially used a fake integer film_id (99999) since Film.id was 
-still an integer pre-rebase. Updated to a UUID-shaped string during 
-Comment 6 (see below) once Film.id was migrated to UUID.
+the full suite. Note: initially used a fake integer film_id (99999) since 
+Film.id was still an integer pre-rebase. Updated to a UUID-shaped string 
+during Comment 6 once Film.id was migrated to UUID.
 
 ## Comment 4 — Default visibility
 **My position:** my position is that default should be false.
@@ -121,3 +119,8 @@ Try adding a nonexistent film_id — should return an error
 Run the automated test suite:
 pytest tests/ -v
 All tests should pass.
+
+
+## Commit History
+
+![git log --oneline output](commit-log-screenshot.png)

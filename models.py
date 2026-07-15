@@ -12,7 +12,7 @@ from app import db
 
 def generate_uuid():
     return str(uuid.uuid4())
-
+ 
 
 class User(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=generate_uuid)
@@ -38,6 +38,8 @@ class Film(db.Model):
     average_rating = db.Column(db.Float, default=0.0)
 
     collection_entries = db.relationship("CollectionEntry", backref="film", lazy=True)
+    watchlist_entries = db.relationship("WatchlistEntry", backref="film", lazy=True)
+
 
     def to_dict(self):
         return {
